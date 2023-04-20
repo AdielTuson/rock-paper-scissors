@@ -16,5 +16,7 @@ either winning or losing the game.
 -The algorithm in pseudocode for this problem:
 //prompt a pop-up box with a message for the user, and ask for his choice
 //when a user inputs his answer,  a function will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’.
-//a function will take the user's and the computers choices, and return
-a string that declares the winner of the round  
+//a function will take the user's and the computers choices, evaluate
+who is the winner and return
+a string that declares the winner of the round.  
+
