@@ -7,11 +7,13 @@ either ‘Rock’, ‘Paper’ or ‘Scissors’. If the computer wins, print a 
 Lose!" message, and if the user wins, will print a "You've Won!"
 message.
 
--plan 
+-plan
 The program will have an interface- a pop-up from the browser asking
 from the user to choose and write either rock, paper, or scissors. The
 The desired output is the choice of the computer and a message for
-either winning or losing the game.  
+either winning or losing the game. 
+The program will then be able to play a 5 round game that keeps score
+and reports a winner or loser at the end.
 
 -The algorithm in pseudocode for this problem:
 //prompt a pop-up box with a message for the user, and ask for his choice
@@ -19,4 +21,7 @@ either winning or losing the game.
 //a function will take the user's and the computers choices, evaluate
 who is the winner and return
 a string that declares the winner of the round.  
+//a new function called game() will use the playRound() function and keep
+the score of both the player and the computer for 5 rounds, and return a
+string that declares the winner of the game. 
 

@@ -1,5 +1,6 @@
 //prompt a pop-up box with a message for the user, and ask for his choice
-let userSelection = window.prompt('You are going to play the most ancient and noble game of all time. A game that kings used to settle wars. A game that has been used throughout history to solve the biggest and most complicated conflicts that mankind have ever faced. It is known by many names, but you might know it as ROCK, PAPER, SCISSORS. In this game you will face a brutal opponent, the computer. Choose your weapon.' , '');
+const playerSelection = window.prompt('You are going to play the most ancient and noble game of all time. A game that kings used to settle wars. A game that has been used throughout history to solve the biggest and most complicated conflicts that mankind have ever faced. It is known by many names, but you might know it as ROCK, PAPER, SCISSORS. In this game you will face a brutal opponent, the computer. Choose your weapon.' , '');
+        console.log(playerSelection)
 
 //a function that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’
 function getComputerChoice() {
@@ -20,14 +21,12 @@ function getComputerChoice() {
 }
 
 //assign the getComputerChoice() functions result to a variable
-let computerSelection = getComputerChoice();
-console.log(computerSelection);
+const computerSelection = getComputerChoice();
 
-/*write a function that will take the user's and the computer's choices,
-evaluate who is the winner and return
+/* a function that will take the user's and the computer's choices, and return
 a string that declares the winner of the round.*/
-function playRound(userSelection, computerSelection) {
-    switch(userSelection.toUpperCase()) {
+function playRound(playerSelection, computerSelection) {
+    switch(playerSelection.toUpperCase()) {
         case 'ROCK':
             if (computerSelection === 'Paper')
                 return ("You Lose! Paper beats Rock");
@@ -56,4 +55,29 @@ function playRound(userSelection, computerSelection) {
             break;
     }  
 } 
-console.log(playRound(userSelection, computerSelection));
+
+/*a function called game() will use the playRound() function and keep
+the score of both the player and the computer for 5 rounds, and return a
+string that declares the winner of the game.*/
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 1; i <=5; i++) {
+        getComputerChoice();
+        const computerSelection = getComputerChoice();
+            console.log(computerSelection);
+        const playerSelection = window.prompt('You are going to play the most ancient and noble game of all time. A game that kings used to settle wars. A game that has been used throughout history to solve the biggest and most complicated conflicts that mankind have ever faced. It is known by many names, but you might know it as ROCK, PAPER, SCISSORS. In this game you will face a brutal opponent, the computer. Choose your weapon.' , '');
+        
+        playRound(playerSelection, computerSelection);
+            console.log(playRound(playerSelection, computerSelection));
+        if (playRound(playerSelection, computerSelection).substring(4,7) === 'Win') {
+            playerScore++;
+        }
+        else if (playRound(playerSelection, computerSelection).substring(4,8) === 'Lose') {
+            computerScore++;
+        }
+        
+    }
+    return "playerScore is " + playerScore + " computerScore is " + computerScore;
+}
+    console.log(game());
