@@ -1,5 +1,5 @@
 //prompt a pop-up box with a message for the user, and ask for his choice
-const playerSelection = window.prompt('You are going to play the most ancient and noble game of all time. A game that kings used to settle wars. A game that has been used throughout history to solve the biggest and most complicated conflicts that mankind have ever faced. It is known by many names, but you might know it as ROCK, PAPER, SCISSORS. In this game you will face a brutal opponent, the computer. Choose your weapon.' , '');
+let playerSelection = prompt('You are going to play the most ancient and noble game of all time. A game that kings used to settle wars. A game that has been used throughout history to solve the biggest and most complicated conflicts that mankind have ever faced. It is known by many names, but you might know it as ROCK, PAPER, SCISSORS. In this game you will face a brutal opponent, the computer. Choose your weapon.' , '');
         console.log(playerSelection)
 
 //a function that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’
@@ -8,51 +8,51 @@ function getComputerChoice() {
     switch (randomNumber) {
         case 0: 
             return 'Rock';
-            break;
+            
 
         case 1: 
             return 'Paper';
-            break;
+            
 
         case 2: 
             return 'Scissors'
-            break;
+            
     }
 }
-
+// console.log(getComputerChoice());
 //assign the getComputerChoice() functions result to a variable
-const computerSelection = getComputerChoice();
-
+// let computerSelection = getComputerChoice();
+//     console.log(computerSelection);
 /* a function that will take the user's and the computer's choices, and return
 a string that declares the winner of the round.*/
-function playRound(playerSelection, computerSelection) {
-    switch(playerSelection.toUpperCase()) {
+function playRound(playersChoice, computersChoice) {
+    switch(playersChoice.toUpperCase()) {
         case 'ROCK':
-            if (computerSelection === 'Paper')
-                return ("You Lose! Paper beats Rock");
-            else if (computerSelection ==='Scissors')
-                return ("You Win! Rock beats Scissors");
+            if (computersChoice === 'Paper')
+                return "lose";
+            else if (computersChoice ==='Scissors')
+                return "win";
             else 
-                return "It's a tie!";
-            break;
+                return "tie";
+            
         
         case 'PAPER':
-            if (computerSelection === 'Scissors')
-                return ("You Lose! Scissors beats Paper")
-            else if (computerSelection === 'Rock')
-                return ("You Win! Paper beats Rock")
+            if (computersChoice === 'Scissors')
+                return "lose";
+            else if (computersChoice === 'Rock')
+                return "win";
             else
-                return "It's a tie!";
-            break;
+                return "tie";
+            
 
         case 'SCISSORS':
-            if (computerSelection === 'Rock')
-                return ("You Lose! Rock beats Scissors");
-            else if (computerSelection === 'Paper')
-                return ("You Win! Scissors beats Paper")
+            if (computersChoice === 'Rock')
+                return "lose";
+            else if (computersChoice === 'Paper')
+                return "win";
             else 
-                return ("It's a tie!")
-            break;
+                return "tie";
+            
     }  
 } 
 
@@ -63,17 +63,13 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
     for (let i = 1; i <=5; i++) {
-        getComputerChoice();
-        const computerSelection = getComputerChoice();
-            console.log(computerSelection);
-        const playerSelection = window.prompt('You are going to play the most ancient and noble game of all time. A game that kings used to settle wars. A game that has been used throughout history to solve the biggest and most complicated conflicts that mankind have ever faced. It is known by many names, but you might know it as ROCK, PAPER, SCISSORS. In this game you will face a brutal opponent, the computer. Choose your weapon.' , '');
-        
-        playRound(playerSelection, computerSelection);
-            console.log(playRound(playerSelection, computerSelection));
-        if (playRound(playerSelection, computerSelection).substring(4,7) === 'Win') {
+        playRound(playerSelection, getComputerChoice());
+            console.log(getComputerChoice());   
+            console.log(playRound(playerSelection, getComputerChoice()));
+        if (playRound(playerSelection, getComputerChoice()) === 'Win') {
             playerScore++;
         }
-        else if (playRound(playerSelection, computerSelection).substring(4,8) === 'Lose') {
+        else if (playRound(playerSelection, getComputerChoice()).substring(4,8) === 'Lose') {
             computerScore++;
         }
         
