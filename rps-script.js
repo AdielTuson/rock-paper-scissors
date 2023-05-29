@@ -9,14 +9,11 @@ function getComputerChoice() {
         case 0: 
             return 'Rock';
             
-
         case 1: 
             return 'Paper';
             
-
         case 2: 
             return 'Scissors'
-            
     }
 }
 // console.log(getComputerChoice());
@@ -62,18 +59,24 @@ string that declares the winner of the game.*/
 function game() {
     let playerScore = 0;
     let computerScore = 0;
-    for (let i = 1; i <=5; i++) {
-        playRound(playerSelection, getComputerChoice());
-            console.log(getComputerChoice());   
-            console.log(playRound(playerSelection, getComputerChoice()));
-        if (playRound(playerSelection, getComputerChoice()) === 'Win') {
+    for (let i = 0; i <5; i++) {
+        let computerSelection = getComputerChoice();
+            console.log(computerSelection);
+        playRound(playerSelection, computerSelection);
+
+        if (playRound(playerSelection, computerSelection) === 'win') {
             playerScore++;
+            alert (`The computer chose ${computerSelection}. You've won this round!`);
         }
-        else if (playRound(playerSelection, getComputerChoice()).substring(4,8) === 'Lose') {
+        else if (playRound(playerSelection, computerSelection) === 'lose') {
             computerScore++;
+            alert (`The computer chose ${computerSelection}. You've lost this round!`)
         }
-        
+        else {
+            alert (`The computer chose ${computerSelection}. It's a tie!`)
+        }
+        playerSelection = prompt("You're next choice", ''); 
     }
-    return "playerScore is " + playerScore + " computerScore is " + computerScore;
+    alert("playerScore is: " + playerScore + ". computerScore is: " + computerScore);
 }
     console.log(game());
