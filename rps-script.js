@@ -16,10 +16,7 @@ function getComputerChoice() {
             return 'Scissors'
     }
 }
-// console.log(getComputerChoice());
-//assign the getComputerChoice() functions result to a variable
-// let computerSelection = getComputerChoice();
-//     console.log(computerSelection);
+
 /* a function that will take the user's and the computer's choices, and return
 a string that declares the winner of the round.*/
 function playRound(playersChoice, computersChoice) {
