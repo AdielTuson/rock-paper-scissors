@@ -1,5 +1,5 @@
 //prompt a pop-up box with a message for the user, and ask for his choice
-let playerSelection = prompt('You are going to play the most ancient and noble game of all time. A game that kings used to settle wars. A game that has been used throughout history to solve the biggest and most complicated conflicts that mankind have ever faced. It is known by many names, but you might know it as ROCK, PAPER, SCISSORS. In this game you will face a brutal opponent, the computer. Choose your weapon.' , '');
+let playerSelection = prompt('You are going to play the most ancient and noble game of all time. A game that kings used to settle wars. A game that has been used throughout history to solve the biggest and most complicated conflicts that mankind have ever faced. It is known by many names, but you might know it as ROCK, PAPER, SCISSORS. In this game you will face a brutal opponent, the computer. It will be a five round match. Choose your weapon wisely.' , '');
         console.log(playerSelection)
 
 //a function that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’
@@ -66,17 +66,22 @@ function game() {
 
         if (playRound(playerSelection, computerSelection) === 'win') {
             playerScore++;
-            alert (`The computer chose ${computerSelection}. You've won this round!`);
+            alert (`The computer chose ${computerSelection}. You've chosen ${playerSelection}. You've won this round!`);
         }
         else if (playRound(playerSelection, computerSelection) === 'lose') {
             computerScore++;
-            alert (`The computer chose ${computerSelection}. You've lost this round!`)
+            alert (`The computer chose ${computerSelection}. You've chosen ${playerSelection}. You've lost this round!`)
         }
         else {
-            alert (`The computer chose ${computerSelection}. It's a tie!`)
+            alert (`The computer chose ${computerSelection}. You've chosen ${playerSelection}. It's a tie!`)
         }
+
+        if (i < 4) {
         playerSelection = prompt("You're next choice", ''); 
+        }
     }
-    alert("playerScore is: " + playerScore + ". computerScore is: " + computerScore);
+    
+    let matchResult = playerScore > computerScore ? ". You've won!" : ". You've lost..";
+    alert("playerScore is: " + playerScore + ". computerScore is: " + computerScore + matchResult);
 }
     console.log(game());
