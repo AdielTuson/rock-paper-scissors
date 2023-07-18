@@ -56,7 +56,7 @@ string that declares the winner of the game.*/
 function game() {
     let playerScore = 0;
     let computerScore = 0;
-    for (let i = 0; i <5; i++) {
+    // for (let i = 0; i <5; i++) {
         let computerSelection = getComputerChoice();
             console.log(computerSelection);
         playRound(playerSelection, computerSelection);
@@ -73,12 +73,12 @@ function game() {
             alert (`The computer chose ${computerSelection}. You've chosen ${playerSelection}. It's a tie!`)
         }
 
-        if (i < 4) {
-        playerSelection = prompt("You're next choice", ''); 
-        }
-    }
+        // if (i < 4) {
+        // playerSelection = prompt("You're next choice", ''); 
+        // }
+    // }
     
-    let matchResult = playerScore > computerScore ? ". You've won!" : ". You've lost..";
+    let matchResult = playerScore > computerScore ? ". You've won!" : computerScore > playerScore ? ". You've lost.." : ". I'ts a tie!";
     alert("playerScore is: " + playerScore + ". computerScore is: " + computerScore + matchResult);
 }
     console.log(game());
