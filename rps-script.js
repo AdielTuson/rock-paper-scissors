@@ -1,5 +1,6 @@
 //prompt a pop-up box with a message for the user, and ask for his choice
-let playerSelection = prompt('You are going to play the most ancient and noble game of all time. A game that kings used to settle wars. A game that has been used throughout history to solve the biggest and most complicated conflicts that mankind have ever faced. It is known by many names, but you might know it as ROCK, PAPER, SCISSORS. In this game you will face a brutal opponent, the computer. It will be a five round match. Choose your weapon wisely.' , '');
+let playerSelection = '';
+/*prompt('You are going to play the most ancient and noble game of all time. A game that kings used to settle wars. A game that has been used throughout history to solve the biggest and most complicated conflicts that mankind have ever faced. It is known by many names, but you might know it as ROCK, PAPER, SCISSORS. In this game you will face a brutal opponent, the computer. It will be a five round match. Choose your weapon wisely.' , '');*/
         console.log(playerSelection)
 
 //a function that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’
@@ -16,7 +17,6 @@ function getComputerChoice() {
             return 'Scissors'
     }
 }
-
 /* a function that will take the user's and the computer's choices, and return
 a string that declares the winner of the round.*/
 function playRound(playersChoice, computersChoice) {
@@ -73,12 +73,35 @@ function game() {
             alert (`The computer chose ${computerSelection}. You've chosen ${playerSelection}. It's a tie!`)
         }
 
-        // if (i < 4) {
-        // playerSelection = prompt("You're next choice", ''); 
-        // }
+    //     if (i < 4) {
+    //     playerSelection = prompt("You're next choice", ''); 
+    //     }
     // }
     
     let matchResult = playerScore > computerScore ? ". You've won!" : computerScore > playerScore ? ". You've lost.." : ". I'ts a tie!";
     alert("playerScore is: " + playerScore + ". computerScore is: " + computerScore + matchResult);
 }
     console.log(game());
+
+//Add event listeners for buttons 
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
+
+rockBtn.addEventListener('click', function () {
+    const result = playRound('rock', getComputerChoice());
+    console.log(result);
+});
+
+paperBtn.addEventListener('click', function () {
+    const result = playRound('paper', getComputerChoice());
+    console.log(result);
+});
+
+scissorsBtn.addEventListener('click', function () {
+    const result = playRound('scissors', getComputerChoice());
+    console.log(result);
+});
+
+
+
