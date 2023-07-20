@@ -1,8 +1,3 @@
-//prompt a pop-up box with a message for the user, and ask for his choice
-
-/*let playerSelection = prompt('You are going to play the most ancient and noble game of all time. A game that kings used to settle wars. A game that has been used throughout history to solve the biggest and most complicated conflicts that mankind have ever faced. It is known by many names, but you might know it as ROCK, PAPER, SCISSORS. In this game you will face a brutal opponent, the computer. It will be a five round match. Choose your weapon wisely.' , '');
-        console.log(playerSelection)*/
-
 //a function that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’
 function getComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3);
@@ -70,7 +65,7 @@ let computerScore = 0;
 
 rockBtn.addEventListener('click', function () {
     const computerChoice = getComputerChoice();
-    computerSection.textContent = computerChoice;
+    computerSection.textContent = ` You have chosen ROCK. The computer have chosen ${computerChoice.toUpperCase()}.`;
     result = playRound('rock', computerChoice);
     checkRoundWinner(result);
     displayScores();
@@ -79,7 +74,7 @@ rockBtn.addEventListener('click', function () {
 
 paperBtn.addEventListener('click', function () {
     const computerChoice = getComputerChoice(); 
-    computerSection.textContent = computerChoice;   
+    computerSection.textContent = `You have chosen PAPER. The computer have chosen ${computerChoice.toUpperCase()}.`;   
     result = playRound('paper', computerChoice);
     checkRoundWinner(result);
     displayScores();
@@ -88,7 +83,7 @@ paperBtn.addEventListener('click', function () {
 
 scissorsBtn.addEventListener('click', function () {
     const computerChoice = getComputerChoice();
-    computerSection.textContent = computerChoice;
+    computerSection.textContent = `You have chosen SCISSORS. The computer have chosen ${computerChoice.toUpperCase()}.`;
     result = playRound('scissors', computerChoice);
     checkRoundWinner(result);
     displayScores();
@@ -97,7 +92,7 @@ scissorsBtn.addEventListener('click', function () {
 
 //a function that will display the scores
 function displayScores() {
-    resultsSection.textContent = `Player score: ${playerScore}. Computer score: ${computerScore}.`
+    resultsSection.textContent = `Player: ${playerScore}. Computer: ${computerScore}.`
 }
 
 //a function that will announce a winner
@@ -111,6 +106,10 @@ function announceWinner(){
     else {
         resultsSection.textContent = "This match is a draw!";
     }
+
+    rockBtn.disabled = true;
+    paperBtn.disabled = true;
+    scissorsBtn.disabled = true;
 }
 
 //a function that will check for a round winner
