@@ -56,57 +56,73 @@ function playRound(playersChoice, computersChoice) {
 the score of both the player and the computer for 5 rounds, and return a
 string that declares the winner of the game.*/
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i <5; i++) {
-        let computerSelection = getComputerChoice();
-            console.log(computerSelection);
-        playRound(playerSelection, computerSelection);
-
-        if (playRound(playerSelection, computerSelection) === 'win') {
-            playerScore++;
-            alert (`The computer chose ${computerSelection}. You've chosen ${playerSelection}. You've won this round!`);
-        }
-        else if (playRound(playerSelection, computerSelection) === 'lose') {
-            computerScore++;
-            alert (`The computer chose ${computerSelection}. You've chosen ${playerSelection}. You've lost this round!`)
-        }
-        else {
-            alert (`The computer chose ${computerSelection}. You've chosen ${playerSelection}. It's a tie!`)
-        }
-
-        if (i < 4) {
-        playerSelection = prompt("You're next choice", ''); 
-        }
-    }
-    
-    let matchResult = playerScore > computerScore ? ". You've won!" : computerScore > playerScore ? ". You've lost.." : ". I'ts a tie!";
-    alert("playerScore is: " + playerScore + ". computerScore is: " + computerScore + matchResult);
-
-    console.log(game());
-}
-
 //Add event listeners for buttons 
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
 const resultsSection = document.querySelector('.results');
+//declare variables for keeping track of scores and announcing a winner
+let result;
+let playerScore = 0;
+let computerScore = 0;
 
 rockBtn.addEventListener('click', function () {
-    const result = playRound('rock', getComputerChoice());
+    result = playRound('rock', getComputerChoice());
     resultsSection.textContent = result;
+    checkRoundWinner(result);
+    displayScores();
+    checkGameWinner();
 });
 
 paperBtn.addEventListener('click', function () {
-    const result = playRound('paper', getComputerChoice());
+    result = playRound('paper', getComputerChoice());
     resultsSection.textContent = result;
+    checkRoundWinner(result);
+    displayScores();
+    checkGameWinner();
 });
 
 scissorsBtn.addEventListener('click', function () {
-    const result = playRound('scissors', getComputerChoice());
+    result = playRound('scissors', getComputerChoice());
     resultsSection.textContent = result;
+    checkRoundWinner(result);
+    displayScores();
+    checkGameWinner();
 });
 
+//a function that will display the scores
+function displayScores() {
+    resultsSection.textContent = `Player score: ${playerScore}. Computer score: ${computerScore}.`
+}
+
+//a function that will announce a winner
+function announceWinner(){
+    if (playerScore > computerScore) {
+        resultsSection.textContent = "You won the game!";
+    }
+    else if (playerScore < computerScore) {
+        resultsSection.textContent = "You lost the game...";
+    }
+    else {
+        resultsSection.textContent = "This match is a draw!";
+    }
+}
+
+//a function that will check for a round winner
+function checkRoundWinner(roundResults){
+    if (roundResults === 'win'){
+        playerScore++
+    }
+    else if (roundResults === 'lose'){
+        computerScore++
+    }
+}
+
+//a function that will check for a game winner
+function checkGameWinner(){
+    if (playerScore === 5 || computerScore === 5) {
+        announceWinner();
+    }
+}
 
 
