@@ -56,35 +56,40 @@ function playRound(playersChoice, computersChoice) {
 the score of both the player and the computer for 5 rounds, and return a
 string that declares the winner of the game.*/
 
-//Add event listeners for buttons 
+//Add event listeners for buttons and sections
 const rockBtn = document.querySelector('#rock');
 const paperBtn = document.querySelector('#paper');
 const scissorsBtn = document.querySelector('#scissors');
 const resultsSection = document.querySelector('.results');
+const computerSection = document.querySelector('.computerChoice'); 
+
 //declare variables for keeping track of scores and announcing a winner
 let result;
 let playerScore = 0;
 let computerScore = 0;
 
 rockBtn.addEventListener('click', function () {
-    result = playRound('rock', getComputerChoice());
-    resultsSection.textContent = result;
+    const computerChoice = getComputerChoice();
+    computerSection.textContent = computerChoice;
+    result = playRound('rock', computerChoice);
     checkRoundWinner(result);
     displayScores();
     checkGameWinner();
 });
 
 paperBtn.addEventListener('click', function () {
-    result = playRound('paper', getComputerChoice());
-    resultsSection.textContent = result;
+    const computerChoice = getComputerChoice(); 
+    computerSection.textContent = computerChoice;   
+    result = playRound('paper', computerChoice);
     checkRoundWinner(result);
     displayScores();
     checkGameWinner();
 });
 
 scissorsBtn.addEventListener('click', function () {
-    result = playRound('scissors', getComputerChoice());
-    resultsSection.textContent = result;
+    const computerChoice = getComputerChoice();
+    computerSection.textContent = computerChoice;
+    result = playRound('scissors', computerChoice);
     checkRoundWinner(result);
     displayScores();
     checkGameWinner();
