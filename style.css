@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    text-align: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    padding: 0 10%;
+    gap: 18%;
+    background-image: url(images/dark-warrior.png);
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.opening {
+    font-size: 28px;
+    padding-top: 10%;  
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 20%;
+}
+
+button {
+    width:180px;
+    height: 180px;
+    font-size: 20px;
+    background-color: transparent;
+    /* border: none; */
+    color: white;
+    cursor: pointer;
+}
+
+#scissors {
+    background-image: url(images/scissors\ -good.png);
+    background-position: center;
+    background-size: cover;
+}
+
+#rock{
+    background-image: url(images/raise-hand\ \(1\).png);
+    background-position: center;
+    background-size: cover;
+}
+
+#paper {
+    background-image: url(images/paper-hand-smaller.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.computerChoice {
+    font-size: 28px;
+}
+
+.results {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
