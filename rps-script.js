@@ -65,7 +65,7 @@ let computerScore = 0;
 
 rockBtn.addEventListener('click', function () {
     const computerChoice = getComputerChoice();
-    computerSection.textContent = ` You have chosen ROCK. The computer have chosen ${computerChoice.toUpperCase()}.`;
+    computerSection.textContent = ` You have chosen ROCK. Your enemy have chosen ${computerChoice.toUpperCase()}.`;
     result = playRound('rock', computerChoice);
     checkRoundWinner(result);
     displayScores();
@@ -74,7 +74,7 @@ rockBtn.addEventListener('click', function () {
 
 paperBtn.addEventListener('click', function () {
     const computerChoice = getComputerChoice(); 
-    computerSection.textContent = `You have chosen PAPER. The computer have chosen ${computerChoice.toUpperCase()}.`;   
+    computerSection.textContent = `You have chosen PAPER. Your enemy have chosen ${computerChoice.toUpperCase()}.`;   
     result = playRound('paper', computerChoice);
     checkRoundWinner(result);
     displayScores();
@@ -83,7 +83,7 @@ paperBtn.addEventListener('click', function () {
 
 scissorsBtn.addEventListener('click', function () {
     const computerChoice = getComputerChoice();
-    computerSection.textContent = `You have chosen SCISSORS. The computer have chosen ${computerChoice.toUpperCase()}.`;
+    computerSection.textContent = `You have chosen SCISSORS. Your enemy have chosen ${computerChoice.toUpperCase()}.`;
     result = playRound('scissors', computerChoice);
     checkRoundWinner(result);
     displayScores();
@@ -92,19 +92,19 @@ scissorsBtn.addEventListener('click', function () {
 
 //a function that will display the scores
 function displayScores() {
-    resultsSection.textContent = `Player: ${playerScore}. Computer: ${computerScore}.`
+    resultsSection.textContent = `You : ${playerScore}         Enemy : ${computerScore}`
 }
 
 //a function that will announce a winner
 function announceWinner(){
     if (playerScore > computerScore) {
-        resultsSection.textContent = "You won the game!";
+        resultsSection.textContent = "You won the battle! Your kingdom is eternally grateful";
     }
     else if (playerScore < computerScore) {
-        resultsSection.textContent = "You lost the game...";
+        resultsSection.textContent = "You lost the battle... You have failed us all";
     }
     else {
-        resultsSection.textContent = "This match is a draw!";
+        resultsSection.textContent = "This battle is a draw! You shall try again";
     }
 
     rockBtn.disabled = true;
