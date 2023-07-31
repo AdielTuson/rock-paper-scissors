@@ -92,7 +92,7 @@ scissorsBtn.addEventListener('click', function () {
 
 //a function that will display the scores
 function displayScores() {
-    resultsSection.textContent = `You : ${playerScore}         Enemy : ${computerScore}`
+    resultsSection.textContent = `You : ${playerScore}         Enemy : ${computerScore}`;
 }
 
 //a function that will announce a winner
@@ -128,5 +128,3 @@ function checkGameWinner(){
         announceWinner();
     }
 }
-
-

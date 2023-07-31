@@ -22,7 +22,7 @@ body {
 
 .opening {
     font-size: 22px;
-    padding-top: 10%;  
+    padding-top: 10%; 
 }
 
 .buttons {
@@ -81,9 +81,9 @@ button:hover {
 }
 
 .results {
-    font-size: 28px;
+    font-size: 32px;
     font-weight: bold;
-    color: rgb(255, 158, 3);
+    color: rgb(226, 113, 48);
 }
 
 .bottom {
