@@ -129,19 +129,4 @@ function checkGameWinner(){
     }
 }
 
-//add event listeners for when the player is hovering above a button
-const buttons = document.querySelectorAll('button');
-console.log(buttons);
-
-buttons.forEach((button) => {
-    button.addEventListener('mouseover', () => {
-        button.classList.add("button-hover");
-    });
-});
-
-buttons.forEach((button) => {
-    button.addEventListener('mouseout', () => {
-        button.classList.remove("button-hover")
-    })
-})
 
